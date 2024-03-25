@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Linkh3",
-  description: "Fast and simple URL shortener.",
+  description: "Fast, easy and free URL shortener.",
   icons: {
     icon: "/shorter-icon.svg",
   },
