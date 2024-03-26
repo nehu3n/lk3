@@ -10,21 +10,3 @@ export function validateURL(url: string): boolean {
     /^(?:(?:(?:https?|ftp):)?\/\/)?(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}|(?:\d{1,3}\.){3}\d{1,3}|localhost)(?::\d+)?(?:\/[^\s]*)?$/i;
   return urlRegex.test(url);
 }
-
-export async function createShorter(url: string) {
-  const hashURL = generateURLHash(url);
-
-  try {
-    await redis.set(hashURL, url);
-
-    return {
-      success: true,
-      error: null,
-    };
-  } catch (err) {
-    return {
-      success: false,
-      error: err,
-    };
-  }
-}

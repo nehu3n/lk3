@@ -1,4 +1,4 @@
-import { redis } from "@/lib/db";
+import { API_URL } from "@/lib/db";
 import { Hono } from "hono";
 import { handle } from "hono/vercel";
 
@@ -9,14 +9,28 @@ const app = new Hono();
 app.get("/:slug", async (c) => {
   const slug = c.req.param("slug");
 
-  let url = (await redis.get(slug)) as string;
-  if (!url.startsWith("https://")) url = "https://" + url;
+  const response = await fetch(`${API_URL}/api/get?slug=${slug}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 
-  if (url === null) {
+  if (!response.ok) {
     return c.redirect("/");
   }
 
-  return c.redirect(url);
+  try {
+    const data = await response.json();
+
+    if (data.url === null) {
+      return c.redirect("/");
+    } else {
+      return c.redirect(data.url);
+    }
+  } catch (error) {
+    return c.redirect("/");
+  }
 });
 
 export const GET = handle(app);
