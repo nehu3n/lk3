@@ -201,7 +201,7 @@ export default function Home() {
                 className="w-full h-10 px-4 bg-[#101010] text-white placeholder-gray-500 focus:outline-none rounded-md border-2 border-gray-500 placeholder:text-1xl animate-fade-right animate-delay-100"
               />
               <button
-                className="h-10 self-start w-min px-6 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md animate-fade-right animate-delay-150"
+                className="h-10 w-min px-6 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md animate-fade-right animate-delay-150"
                 onClick={handleSubmit}
               >
                 Shorten
