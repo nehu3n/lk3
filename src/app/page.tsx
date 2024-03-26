@@ -22,6 +22,7 @@ export default function Home() {
   );
   const [shorterCreated, setShorterCreated] = useState(false);
   const [shorterCreated2, setShorterCreated2] = useState(false);
+  const [backToMenuMain, setBackToMenuMain] = useState(false);
 
   const [shortenedUrl, setShortenedUrl] = useState("");
 
@@ -83,6 +84,10 @@ export default function Home() {
           copy(shortenedUrl);
           sendMessage("Shortened link copied.");
         }, 2500);
+
+        setTimeout(() => {
+          setBackToMenuMain(true);
+        }, 4000);
       } else {
         setTimeout(() => {
           setShortening(false);
@@ -153,12 +158,12 @@ export default function Home() {
 
       <main className="flex flex-col -mt-14 items-center justify-center h-screen">
         <h3
-          className={`text-lg mb-5 px-3 rounded-md font-semibold bg-[#27272a] text-white ${GeistSans.className}`}
+          className={`text-lg mb-5 px-3 rounded-md font-semibold bg-[#27272a] text-white ${GeistSans.className} animate-fade-down`}
         >
           Fast, simple and free
         </h3>
         <h1
-          className={`text-5xl bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className}`}
+          className={`text-5xl bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className} animate-fade-down animate-delay-75`}
         >
           Linkh3 - URL Shortener
         </h1>
@@ -193,10 +198,10 @@ export default function Home() {
                 type="text"
                 placeholder="Enter your URL here"
                 onChange={handleChange}
-                className="w-[430px] h-10 px-4 bg-[#101010] text-white placeholder-gray-500 focus:outline-none rounded-md border-2 border-gray-500 placeholder:text-1xl"
+                className="w-[430px] h-10 px-4 bg-[#101010] text-white placeholder-gray-500 focus:outline-none rounded-md border-2 border-gray-500 placeholder:text-1xl animate-fade-right animate-delay-100"
               />
               <button
-                className="h-10 px-6 ml-2 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md"
+                className="h-10 px-6 ml-2 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md animate-fade-right animate-delay-150"
                 onClick={handleSubmit}
               >
                 Shorten
@@ -204,7 +209,6 @@ export default function Home() {
             </div>
           )
         )}
-
         {shorterCreated && !shorterCreated2 ? (
           <button
             disabled
@@ -268,6 +272,20 @@ export default function Home() {
               </div>
             </div>
           )
+        )}
+
+        {backToMenuMain && (
+          <button
+            onClick={() => {
+              setShorterCreated(false);
+              setShorterCreated2(false);
+              setShortening(false);
+              setBackToMenuMain(false);
+            }}
+            className="h-10 px-6 ml-2 mt-8 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md animate-fade-down"
+          >
+            Create another link
+          </button>
         )}
       </main>
     </>
