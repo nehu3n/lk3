@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { GeistSans } from "geist/font/sans";
 import { generateURLHash, validateURL } from "@/lib/url";
 import copy from "copy-to-clipboard";
 import { API_URL } from "@/lib/db";
@@ -172,14 +171,10 @@ export default function Home() {
       )}
 
       <main className="flex flex-col pb-20 items-center justify-center h-screen">
-        <h3
-          className={`text-lg mb-5 px-3 rounded-md font-semibold bg-[#27272a] text-white ${GeistSans.className} animate-fade-down`}
-        >
+        <h3 className="text-lg mb-5 px-4 rounded-md font-medium bg-[#27272a] text-white animate-fade-down">
           Fast, simple and free
         </h3>
-        <h1
-          className={`text-5xl text-center bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className} animate-fade-down animate-delay-75`}
-        >
+        <h1 className="text-5xl text-center bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent animate-fade-down animate-delay-75">
           LK3 - URL Shortener
         </h1>
         {shortening && !shorterCreated && !shorterCreated2 ? (
