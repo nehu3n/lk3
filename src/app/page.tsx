@@ -101,7 +101,7 @@ export default function Home() {
         sendError(String(e));
       }
 
-      setShortenedUrl(`lk3.vercel.app/${generateURLHash(inputValue)}`);
+      setShortenedUrl(`https://lk3.vercel.app/${generateURLHash(inputValue)}`);
     }
   };
 
