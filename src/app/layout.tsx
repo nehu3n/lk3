@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Linkh3",
+  title: "LK3",
   description: "Fast, easy and free URL shortener.",
   icons: {
     icon: "/shorter-icon.svg",

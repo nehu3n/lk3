@@ -102,7 +102,7 @@ export default function Home() {
         sendError(String(e));
       }
 
-      setShortenedUrl(`linkh3.vercel.app/${generateURLHash(inputValue)}`);
+      setShortenedUrl(`lk3.vercel.app/${generateURLHash(inputValue)}`);
     }
   };
 
@@ -180,7 +180,7 @@ export default function Home() {
         <h1
           className={`text-5xl text-center bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className} animate-fade-down animate-delay-75`}
         >
-          Linkh3 - URL Shortener
+          LK3 - URL Shortener
         </h1>
         {shortening && !shorterCreated && !shorterCreated2 ? (
           <div className="animate-fade-left">
