@@ -118,7 +118,10 @@ export default function Home() {
   return (
     <>
       {error.display && (
-        <div className="relative flex flex-col items-center justify-center">
+        <div
+          className="relative flex flex-col items-center justify-center hover:cursor-pointer"
+          onClick={() => setError({ message: "", display: false })}
+        >
           {error.display && (
             <div className="absolute inline-flex m-5 top-5 border-l-8 border-l-red-700 bg-red-500 text-white font-bold px-5 py-2 rounded-md shadow animate-fade-down">
               <svg
@@ -141,7 +144,10 @@ export default function Home() {
         </div>
       )}
       {message.display && (
-        <div className="relative flex flex-col items-center justify-center">
+        <div
+          className="relative flex flex-col items-center justify-center hover:cursor-pointer"
+          onClick={() => setMessage({ message: "", display: false })}
+        >
           {message.display && (
             <div className="absolute inline-flex m-5 top-5 border-l-8 border-l-yellow-600 bg-yellow-500 text-white font-bold px-5 py-2 rounded-md shadow animate-fade-down">
               <svg
@@ -165,14 +171,14 @@ export default function Home() {
         </div>
       )}
 
-      <main className="flex flex-col -mt-14 items-center justify-center h-screen">
+      <main className="flex flex-col pb-20 items-center justify-center h-screen">
         <h3
           className={`text-lg mb-5 px-3 rounded-md font-semibold bg-[#27272a] text-white ${GeistSans.className} animate-fade-down`}
         >
           Fast, simple and free
         </h3>
         <h1
-          className={`text-5xl bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className} animate-fade-down animate-delay-75`}
+          className={`text-5xl text-center bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className} animate-fade-down animate-delay-75`}
         >
           Linkh3 - URL Shortener
         </h1>
@@ -202,15 +208,15 @@ export default function Home() {
         ) : (
           !shorterCreated &&
           !shorterCreated2 && (
-            <div className="flex items-center mt-6 bg-black rounded-md">
+            <div className="flex flex-col sm:flex-row px-2 sm:px-0 items-center mt-6 rounded-md gap-2 justify-center max-w-[430px] w-full">
               <input
                 type="text"
                 placeholder="Enter your URL here"
                 onChange={handleChange}
-                className="w-[430px] h-10 px-4 bg-[#101010] text-white placeholder-gray-500 focus:outline-none rounded-md border-2 border-gray-500 placeholder:text-1xl animate-fade-right animate-delay-100"
+                className="w-full h-10 px-4 bg-[#101010] text-white placeholder-gray-500 focus:outline-none rounded-md border-2 border-gray-500 placeholder:text-1xl animate-fade-right animate-delay-100"
               />
               <button
-                className="h-10 px-6 ml-2 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md animate-fade-right animate-delay-150"
+                className="h-10 w-min px-6 text-1xl bg-gradient-to-r from-yellow-50 via-yellow-100 to-yellow-200 text-black font-bold rounded-md animate-fade-right animate-delay-150"
                 onClick={handleSubmit}
               >
                 Shorten
