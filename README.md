@@ -1,6 +1,6 @@
 <div align="center">
 
-# Linkh - URL Shortener
+# LK3 - URL Shortener
 
 *Fast, easy and free URL shortener.*
 
