@@ -5,4 +5,4 @@ export const redis = new Redis({
   token: process.env.UPSTASH_TOKEN || "",
 });
 
-export const API_URL = "http://localhost:3000";
+export const API_URL = "https://lk3.vercel.app";

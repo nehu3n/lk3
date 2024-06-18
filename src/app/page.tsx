@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { GeistSans } from "geist/font/sans";
 import { generateURLHash, validateURL } from "@/lib/url";
 import copy from "copy-to-clipboard";
 import { API_URL } from "@/lib/db";
@@ -62,7 +61,7 @@ export default function Home() {
     if (error.display) return;
 
     if (inputValue.length == 0) {
-      sendError("Enter a URL.");
+      sendError("Enter an URL.");
 
       return;
     }
@@ -102,7 +101,7 @@ export default function Home() {
         sendError(String(e));
       }
 
-      setShortenedUrl(`linkh3.vercel.app/${generateURLHash(inputValue)}`);
+      setShortenedUrl(`https://lk3.vercel.app/${generateURLHash(inputValue)}`);
     }
   };
 
@@ -123,22 +122,22 @@ export default function Home() {
           onClick={() => setError({ message: "", display: false })}
         >
           {error.display && (
-            <div className="absolute inline-flex m-5 top-5 border-l-8 border-l-red-700 bg-red-500 text-white font-bold px-5 py-2 rounded-md shadow animate-fade-down">
+            <div className="absolute inline-flex m-5 top-5 border-l-8 border-l-red-700 bg-red-500 text-white font-bold pl-3 px-5 py-2 rounded-md shadow animate-fade-down">
               <svg
-                className="w-7 h-7 mt-1 -ml-2 mr-2 text-gray-800"
-                aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+                width="24"
+                viewBox="0 0 512 512"
+                className="mr-2"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm7.707-3.707a1 1 0 0 0-1.414 1.414L10.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414L12 13.414l2.293 2.293a1 1 0 0 0 1.414-1.414L13.414 12l2.293-2.293a1 1 0 0 0-1.414-1.414L12 10.586 9.707 8.293Z"
-                  clip-rule="evenodd"
+                  fill="#ffffff"
+                  d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"
                 />
               </svg>
 
-              <span className="text-lg mt-0.5 font-bold">{error.message}</span>
+              <span className="text-lg mt-0.5 font-semibold">
+                {error.message}
+              </span>
             </div>
           )}
         </div>
@@ -149,21 +148,20 @@ export default function Home() {
           onClick={() => setMessage({ message: "", display: false })}
         >
           {message.display && (
-            <div className="absolute inline-flex m-5 top-5 border-l-8 border-l-yellow-600 bg-yellow-500 text-white font-bold px-5 py-2 rounded-md shadow animate-fade-down">
+            <div className="absolute inline-flex m-5 top-5 border-l-8 border-l-yellow-600 bg-yellow-500 text-white font-bold pl-3 px-5 py-2 rounded-md shadow animate-fade-down">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="w-7 h-7 mt-1 -ml-2 mr-2 text-gray-800"
+                width="24"
+                viewBox="0 0 512 512"
+                className="mr-2"
               >
                 <path
-                  fill-rule="evenodd"
-                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                  clip-rule="evenodd"
+                  fill="#ffffff"
+                  d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"
                 />
               </svg>
 
-              <span className="text-lg mt-0.5 font-bold">
+              <span className="text-lg mt-0.5 font-semibold">
                 {message.message}
               </span>
             </div>
@@ -172,15 +170,11 @@ export default function Home() {
       )}
 
       <main className="flex flex-col pb-20 items-center justify-center h-screen">
-        <h3
-          className={`text-lg mb-5 px-3 rounded-md font-semibold bg-[#27272a] text-white ${GeistSans.className} animate-fade-down`}
-        >
+        <h3 className="text-lg mb-5 px-4 rounded-md font-medium bg-[#27272a] text-white animate-fade-down">
           Fast, simple and free
         </h3>
-        <h1
-          className={`text-5xl text-center bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent ${GeistSans.className} animate-fade-down animate-delay-75`}
-        >
-          Linkh3 - URL Shortener
+        <h1 className="text-5xl text-center bg-gradient-to-r font-extrabold from-yellow-50 via-yellow-100 to-yellow-200 bg-clip-text text-transparent animate-fade-down animate-delay-75">
+          LK3 - URL Shortener
         </h1>
         {shortening && !shorterCreated && !shorterCreated2 ? (
           <div className="animate-fade-left">
@@ -188,7 +182,7 @@ export default function Home() {
               disabled
               className="px-6 h-10 mt-5 cursor-wait bg-gradient-to-r from-yellow-100 from-10% via-yellow-200 via-50% to-yellow-300 animate-bg bg-[length:600%] rounded-md text-black font-bold"
             >
-              <div className="inline-flex">
+              <div className="flex">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -201,7 +195,7 @@ export default function Home() {
                     clipRule="evenodd"
                   />
                 </svg>
-                <b>Shortening...</b>
+                Shortening...
               </div>
             </button>
           </div>
@@ -229,7 +223,7 @@ export default function Home() {
             disabled
             className="px-6 h-10 mt-5 bg-gradient-to-r from-green-100 via-green-200 to-green-300 rounded-md text-black font-bold"
           >
-            <div className="inline-flex">
+            <div className="flex">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -244,8 +238,7 @@ export default function Home() {
                   d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                 />
               </svg>
-
-              <b>Link shortened successfully</b>
+              Link shortened successfully
             </div>
           </button>
         ) : (
